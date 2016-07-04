@@ -7,18 +7,24 @@ let canvas: HTMLElement = document.getElementById("canvas");
 let stage: createjs.Stage;
 let helloLabel: createjs.Text;
 
+let startButton: objects.Button;
+
 function init(): void {
     console.log('Game Started Now!');
     stage = new createjs.Stage(canvas); // instantiate the stage container
+    stage.enableMouseOver(20); // required to enable mouse events, 20 frames per second; mouse events are resource intensive, so only enable them when required
     createjs.Ticker.framerate = 60;
     createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
     main(); // call the main game function
 }
 
 function gameLoop(): void {
-    helloLabel.rotation += 5;
 
     stage.update();  // refreshes the stage 60 times every second
+}
+
+function startButtonClick(event: createjs.MouseEvent) {
+    helloLabel.text = "Clicked!";
 }
 
 function main(): void {
@@ -28,6 +34,10 @@ function main(): void {
     helloLabel.x = 320;
     helloLabel.y = 240;
     stage.addChild(helloLabel);
+
+    startButton = new objects.Button("../Assets/images/startButton.png", 320, 340, true);
+    stage.addChild(startButton);
+    startButton.on("click", this.startButtonClick, this);
 }
 
 window.addEventListener("load", init);
