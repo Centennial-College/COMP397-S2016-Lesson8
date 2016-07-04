@@ -1,0 +1,24 @@
+{
+  "name": "COMP397-S2016-Lesson8",
+  "authors": [
+    "Kevin Ma <kbma.kevin@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Scripts/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "PreloadJS": "^0.6.2",
+    "SoundJS": "^0.6.2",
+    "TweenJS": "^0.6.2",
+    "EaselJS": "easeljs#^0.8.2"
+  }
+}
