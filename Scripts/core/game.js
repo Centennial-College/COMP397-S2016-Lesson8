@@ -1,10 +1,25 @@
 /// <reference path="_reference.ts" />
+/**
+ * @author Kevin Ma kma45@my.centennialcollge.ca
+ * @studentID 300867968
+ * @date July 6, 2016
+ * @description This file is the entry point for the game
+ * @version 0.01 - Initial version of the boilerplate
+ */
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Variable Declarations
 // make a reference to the canvas element
 var canvas = document.getElementById("canvas");
 // create a reference to a stage container
 var stage;
 var helloLabel;
 var startButton;
+/**
+ * This method is the entry point for the application
+ *
+ * @method init
+ * @return {void}
+ */
 function init() {
     console.log('Game Started Now!');
     stage = new createjs.Stage(canvas); // instantiate the stage container
@@ -13,12 +28,30 @@ function init() {
     createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
     main(); // call the main game function
 }
-function gameLoop() {
+/**
+ * This is the main game loop
+ *
+ * @method gameLoop
+ * @param {createjs.Event} event
+ * @returns {void}
+ */
+function gameLoop(event) {
     stage.update(); // refreshes the stage 60 times every second
 }
+/**
+ * This is the startButton event handler
+ *
+ * @param {createjs.MouseEvent} event
+ */
 function startButtonClick(event) {
     helloLabel.text = "Clicked!";
 }
+/**
+ * This is the main game method
+ *
+ * @method main
+ * @returns {void}
+ */
 function main() {
     helloLabel = new createjs.Text("Hello World!", "40px Consolas", "#000");
     helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5;
@@ -30,5 +63,7 @@ function main() {
     stage.addChild(startButton);
     startButton.on("click", this.startButtonClick, this);
 }
+// waits until the window object is finished loading, then calls the init method
 window.addEventListener("load", init);
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 //# sourceMappingURL=game.js.map
